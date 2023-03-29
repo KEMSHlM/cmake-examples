@@ -7,7 +7,9 @@ cmake_minimum_required(VERSION 2.8)
 project (hello_cpp11)
 
 # try conditional compilation
+# include で機能を利用できるようにする
 include(CheckCXXCompilerFlag)
+# 結果を格納する変数を定義
 CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
 CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
 

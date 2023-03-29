@@ -6,17 +6,19 @@ cmake_minimum_required(VERSION 3.5)
 # Set the project name
 project (hello_headers)
 
-# Create a sources variable with a link to all cpp files to compile
+# main.cppとhello.cppは区別する必要がないんだな．
 set(SOURCES
     src/Hello.cpp
     src/main.cpp
 )
+# 代わりに，変数を用いることも可能だが，最近のCMakeでは推奨されていない
+# file(GLOB SOURCES "src/*.cpp")
 
 # Add an executable with the above sources
 add_executable(hello_headers ${SOURCES})
 
-# Set the directories that should be included in the build command for this target
-# when running g++ these will be included as -I/directory/path/
+# もし異なるディレクトリにあるヘッダファイルをインクルードしたい場合は，以下を追加する．
+# 以下の${PROJECT_SOURCE_DIR}は，CMakeLists.txtがあるディレクトリを指す．
 target_include_directories(hello_headers
     PRIVATE 
         ${PROJECT_SOURCE_DIR}/include

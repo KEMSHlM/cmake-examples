@@ -5,6 +5,7 @@ project (third_party_include)
 
 
 # find a boost install with the libraries filesystem and system
+# 外部ライブラリを探す
 find_package(Boost 1.46.1 REQUIRED COMPONENTS filesystem system)
 
 # check if boost was found
@@ -17,7 +18,8 @@ endif()
 # Add an executable
 add_executable(third_party_include main.cpp)
 
-# link against the boost libraries
+# インポート先のターゲットでcmakeが使われている場合は，
+# 識別子とサブシステムの名前を使用できる．
 target_link_libraries( third_party_include
     PRIVATE
         Boost::filesystem

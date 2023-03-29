@@ -35,6 +35,14 @@ target_link_libraries( cmake_examples_inst_bin
 # Install
 ############################################################
 
+# cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local
+# make install
+# みたいな感じでインストール先を指定することができる．
+# うーむ，例えば自作のライブラリからamrexのライブラリを使うときに，
+# 自作のライブラリ側からamrexのビルドを呼び出すことってあるのかな？  
+# chapgpt曰く，よくそういうことはあるらしい．
+# しかし，その時はExternalProjectを使うのが一般的らしい．
+
 # Binaries
 install (TARGETS cmake_examples_inst_bin
     DESTINATION bin)
