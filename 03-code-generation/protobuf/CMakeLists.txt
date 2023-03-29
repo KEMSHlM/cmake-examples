@@ -4,7 +4,11 @@ cmake_minimum_required(VERSION 3.5)
 project (protobuf_example)
 
 # find the protobuf compiler and libraries
+# このREQUIREDは, パッケージが見つからなかった場合にエラーを出す
 find_package(Protobuf REQUIRED)
+
+# set the C++ standard to C++ 11
+set(CMAKE_CXX_STANDARD 11)
 
 # check if protobuf was found
 if(PROTOBUF_FOUND)
